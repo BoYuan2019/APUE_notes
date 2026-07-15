@@ -296,21 +296,21 @@
 14. 示例：在`main`函数中调用`test_system_file`函数：
 	
 	```
-void test_system_file()
-{
-    M_TRACE("---------  Begin test_system_file()  ---------\n");
-    printf("********* test passwd ************\n");
-    _test_passwd();
-    printf("\n\n********* test shadow ************\n");
-    _test_shadow();
-    printf("\n\n********* test group ************\n");
-    _test_group();
-    printf("\n\n********* test attach groups ************\n");
-    _test_attach_groups();
-    printf("\n\n********* test host ************\n");
-    _test_host();
-    M_TRACE("---------  End test_system_file()  ---------\n\n");
-}
+	void test_system_file()
+	{
+	    M_TRACE("---------  Begin test_system_file()  ---------\n");
+	    printf("********* test passwd ************\n");
+	    _test_passwd();
+	    printf("\n\n********* test shadow ************\n");
+	    _test_shadow();
+	    printf("\n\n********* test group ************\n");
+	    _test_group();
+	    printf("\n\n********* test attach groups ************\n");
+	    _test_attach_groups();
+	    printf("\n\n********* test host ************\n");
+	    _test_host();
+	    M_TRACE("---------  End test_system_file()  ---------\n\n");
+	}
 	```
 
 	注意：
@@ -533,40 +533,40 @@ void test_system_file()
 11. 示例：在`main`函数中调用`test_times`函数：
 
 	```
-void test_times()
-{
-    M_TRACE("---------  Begin test_times()  ---------\n");
-    struct timespec tsp_time;
-    struct timeval tvl_time;
-    time_t tm_t;
-
-    My_time(NULL);
-
-    printf("\n\n******** test clock_gettime *********\n");
-    My_clock_gettime(CLOCK_REALTIME,&tsp_time);
-    My_clock_gettime(CLOCK_MONOTONIC,&tsp_time);
-    My_clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&tsp_time);
-    My_clock_gettime(CLOCK_THREAD_CPUTIME_ID,&tsp_time);
-    printf("\n\n******** test clock_getres  *********\n");
-    tsp_time.tv_sec=time(NULL);  //重新设定为当前时间
-    My_clock_getres(CLOCK_REALTIME,&tsp_time); //获取始终精度，只有 ns 单位才有意义
-    My_clock_getres(CLOCK_MONOTONIC,&tsp_time); //获取始终精度，只有 ns 单位才有意义
-    My_clock_getres(CLOCK_PROCESS_CPUTIME_ID,&tsp_time); //获取始终精度，只有 ns 单位才有意义
-    My_clock_getres(CLOCK_THREAD_CPUTIME_ID,&tsp_time); //获取始终精度，只有 ns 单位才有意义
-    printf("\n\n******** test clock_settime *********\n");
-    tsp_time.tv_sec=time(NULL);  //重新设定为当前时间
-    My_clock_settime(CLOCK_REALTIME,&tsp_time);
-    My_clock_settime(CLOCK_MONOTONIC,&tsp_time);
-    My_clock_settime(CLOCK_PROCESS_CPUTIME_ID,&tsp_time);
-    My_clock_settime(CLOCK_THREAD_CPUTIME_ID,&tsp_time);
-    printf("\n\n");
-    My_gettimeofday(&tvl_time,NULL);
-    tm_t=time(NULL); // 初始化 tm_t
-    struct tm * tm_tm=My_gmtime(&tm_t);
-    My_localtime(&tm_t);
-    My_mktime(tm_tm);
-    M_TRACE("---------  End test_times()  ---------\n\n");
-}	
+	void test_times()
+	{
+	    M_TRACE("---------  Begin test_times()  ---------\n");
+	    struct timespec tsp_time;
+	    struct timeval tvl_time;
+	    time_t tm_t;
+	
+	    My_time(NULL);
+	
+	    printf("\n\n******** test clock_gettime *********\n");
+	    My_clock_gettime(CLOCK_REALTIME,&tsp_time);
+	    My_clock_gettime(CLOCK_MONOTONIC,&tsp_time);
+	    My_clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&tsp_time);
+	    My_clock_gettime(CLOCK_THREAD_CPUTIME_ID,&tsp_time);
+	    printf("\n\n******** test clock_getres  *********\n");
+	    tsp_time.tv_sec=time(NULL);  //重新设定为当前时间
+	    My_clock_getres(CLOCK_REALTIME,&tsp_time); //获取始终精度，只有 ns 单位才有意义
+	    My_clock_getres(CLOCK_MONOTONIC,&tsp_time); //获取始终精度，只有 ns 单位才有意义
+	    My_clock_getres(CLOCK_PROCESS_CPUTIME_ID,&tsp_time); //获取始终精度，只有 ns 单位才有意义
+	    My_clock_getres(CLOCK_THREAD_CPUTIME_ID,&tsp_time); //获取始终精度，只有 ns 单位才有意义
+	    printf("\n\n******** test clock_settime *********\n");
+	    tsp_time.tv_sec=time(NULL);  //重新设定为当前时间
+	    My_clock_settime(CLOCK_REALTIME,&tsp_time);
+	    My_clock_settime(CLOCK_MONOTONIC,&tsp_time);
+	    My_clock_settime(CLOCK_PROCESS_CPUTIME_ID,&tsp_time);
+	    My_clock_settime(CLOCK_THREAD_CPUTIME_ID,&tsp_time);
+	    printf("\n\n");
+	    My_gettimeofday(&tvl_time,NULL);
+	    tm_t=time(NULL); // 初始化 tm_t
+	    struct tm * tm_tm=My_gmtime(&tm_t);
+	    My_localtime(&tm_t);
+	    My_mktime(tm_tm);
+	    M_TRACE("---------  End test_times()  ---------\n\n");
+	}
 	```
 
   	![time](../imgs/system_info/time.JPG)  
